@@ -1,0 +1,18 @@
+{
+  "name": "puzzle-editor",
+  "productName": "Puzzle Editor",
+  "version": "0.1.0",
+  "description": "Editor for Undulating Jigsaw Puzzles",
+  "main": "src/main.js",
+  "scripts": {
+    "electron-packager": "electron-packager",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Michael Park <thatmichaelpark@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-packager": "^8.0.0",
+    "electron-prebuilt": "^1.4.1"
+  }
+}
