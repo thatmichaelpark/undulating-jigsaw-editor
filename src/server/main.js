@@ -5,12 +5,15 @@
 const electron = require('electron');
 
 const { app, BrowserWindow, Menu } = electron;
+const ipc = electron.ipcMain;
 
 let mainWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow();
-  // mainWindow.loadURL('http://localhost:8000/');
+  mainWindow.loadURL(`file://${__dirname}/../browser/editor.html`);
+
+  mainWindow.webContents.openDevTools();;;
 
   const name = app.getName();
   const template = [
@@ -41,11 +44,13 @@ app.on('ready', () => {
       }]
     },
     {
-      label: 'Editor',
+      label: 'View',
       submenu: [{
-        label: 'Puzzle Editor'
+        label: 'Puzzle Editor',
+        click: () => mainWindow.webContents.send('edit puzzle')
       }, {
-        label: 'User Editor'
+        label: 'User Editor',
+        click: () => mainWindow.webContents.send('edit user')
       }]
     }
   ];
@@ -57,4 +62,9 @@ app.on('ready', () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+});
+
+ipc.on('hello', (event, args) => {
+  console.log(args);
+  mainWindow.webContents.send('hi', 'ho');
 });

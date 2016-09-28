@@ -3,9 +3,10 @@
   "productName": "Puzzle Editor",
   "version": "0.1.0",
   "description": "Editor for Undulating Jigsaw Puzzles",
-  "main": "src/main.js",
+  "main": "src/server/main.js",
   "scripts": {
     "electron-packager": "electron-packager",
+    "lint": "eslint",
     "start": "electron ."
   },
   "keywords": [],
