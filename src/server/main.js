@@ -5,7 +5,8 @@
 const electron = require('electron');
 
 const { app, BrowserWindow, Menu } = electron;
-const ipc = electron.ipcMain;
+
+// const ipc = electron.ipcMain;
 
 let mainWindow;
 
@@ -13,7 +14,7 @@ app.on('ready', () => {
   mainWindow = new BrowserWindow();
   mainWindow.loadURL(`file://${__dirname}/../browser/editor.html`);
 
-  mainWindow.webContents.openDevTools();;;
+  mainWindow.webContents.openDevTools();
 
   const name = app.getName();
   const template = [
