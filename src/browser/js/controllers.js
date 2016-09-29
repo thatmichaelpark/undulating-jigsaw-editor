@@ -33,7 +33,7 @@
         loadUsers();
       })
       .catch((err) => {
-        throw err;
+        Materialize.toast(err.data, 4000);
       });
     };
   })

@@ -10,6 +10,13 @@
   </head>
   <body ng-controller="EditorController as editorController">
     <main ng-view></main>
+    <script>
+    // http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined
+      if (typeof module === 'object') {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
     <script src="vendor/js/jquery-2.1.4.min.js"></script>
     <script src="vendor/js/materialize.min.js"></script>
     <script src="vendor/js/angular.min.js"></script>
@@ -18,5 +25,8 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/app.config.js"></script>
+    <script>
+      if (window.module) module = window.module;
+    </script>
   </body>
 </html>
