@@ -48,9 +48,11 @@ app.on('ready', () => {
       label: 'View',
       submenu: [{
         label: 'Puzzle Editor',
+        accelerator: 'Cmd+P',
         click: () => mainWindow.webContents.send('edit', 'puzzles')
       }, {
         label: 'User Editor',
+        accelerator: 'Cmd+U',
         click: () => mainWindow.webContents.send('edit', 'users')
       }]
     }

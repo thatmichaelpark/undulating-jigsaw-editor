@@ -18,6 +18,11 @@
       templateUrl: 'partials/users.html',
       controller: 'UsersController',
       controllerAs: 'usersController'
+    })
+    .when('/usersform/:id', {
+      templateUrl: 'partials/usersform.html',
+      controller: 'UsersFormController',
+      controllerAs: 'usersFormController'
     });
   });
 })();

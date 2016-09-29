@@ -23,7 +23,12 @@
       throw err;
     });
   })
-  .controller('PuzzlesController', function() {
+  .controller('UsersFormController', function(users, $routeParams) {
+    const { id } = $routeParams;
+    console.log('id', id);
+  })
+  .controller('PuzzlesController', function($routeParams) {
+    const { id } = $routeParams
     this.puzzles = [{
       id: 1, imageUrl: 'img/image1'
     }, {
