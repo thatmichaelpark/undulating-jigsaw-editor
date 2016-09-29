@@ -4,16 +4,16 @@
   'use strict';
 
   angular.module('editorApp')
-  .controller('EditorController', function($scope) {
+  .controller('EditorController', function($scope, $location) {
     const electron = require('electron');
 
     const ipc = electron.ipcRenderer;
 
     ipc.on('edit', (event, args) => {
-      this.view = args; // 'users' or 'puzzles'
+      console.log(args);
+      $location.path(args);
       $scope.$apply();
     });
-    this.view = 'puzzles';
   })
   .controller('UsersController', function(users) {
     users.get()

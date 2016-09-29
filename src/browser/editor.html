@@ -4,55 +4,19 @@
     <meta charset="utf-8">
     <title>Puzzle Editor</title>
     <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body>
-    <div ng-controller="EditorController as editorController">
-      <div ng-show="editorController.view === 'users'">
-        <div class="navbar-fixed">
-          <nav>
-            <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">Users</a>
-              <ul class="right hide-on-med-and-down">
-                <li><a ng-click="topicsCtrl.newTopic()">Create New Topic</a></li>
-                <li><a ng-click="postsCtrl.newPost()">Create New Post</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <table class="table" ng-controller="UsersController as usersController">
-          <tr ng-repeat="user in usersController.users">
-            <td>{{user.id}}</td>
-            <td>{{user.username}}</td>
-          </tr>
-        </table>
-      </div>
-      <div ng-show="editorController.view === 'puzzles'">
-        <div class="navbar-fixed">
-          <nav>
-            <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">Puzzles</a>
-              <ul class="right hide-on-med-and-down">
-                <li><a ng-click="topicsCtrl.newTopic()">Create New Topic</a></li>
-                <li><a ng-click="postsCtrl.newPost()">Create New Post</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <table class="table" ng-controller="PuzzlesController as puzzlesController">
-          <tr ng-repeat="puzzle in puzzlesController.puzzles">
-            <td>{{puzzle.id}}</td>
-            <td>{{puzzle.imageUrl}}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <body ng-controller="EditorController as editorController">
+    <main ng-view></main>
     <script src="vendor/js/jquery-2.1.4.min.js"></script>
     <script src="vendor/js/materialize.min.js"></script>
     <script src="vendor/js/angular.min.js"></script>
+    <script src="vendor/js/angular-route.js"></script>
     <script src="js/editor.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/app.config.js"></script>
   </body>
 </html>

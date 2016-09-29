@@ -1,0 +1,24 @@
+<div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <a href="#!" class="brand-logo">Users</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a ng-click="topicsCtrl.newTopic()">Create New Topic</a></li>
+          <li><a ng-click="postsCtrl.newPost()">Create New Post</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <table class="striped" ng-controller="UsersController as usersController">
+    <tr ng-repeat="user in usersController.users">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>
+        <a href="#/puzzles">Edit</a>
+        |
+        <a href="#/">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -2,5 +2,5 @@
 (function() {
   'use strict';
 
-  angular.module('editorApp', []);
+  angular.module('editorApp', ['ngRoute']);
 })();

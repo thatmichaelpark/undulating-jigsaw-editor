@@ -1,0 +1,15 @@
+<div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Puzzles</a>
+      </div>
+    </nav>
+  </div>
+  <table class="table" ng-controller="PuzzlesController as puzzlesController">
+    <tr ng-repeat="puzzle in puzzlesController.puzzles">
+      <td>{{puzzle.id}}</td>
+      <td>{{puzzle.imageUrl}}</td>
+    </tr>
+  </table>
+</div>
