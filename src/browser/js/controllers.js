@@ -15,16 +15,16 @@
     });
     this.view = 'puzzles';
   })
-  .controller('UsersController', function() {
-    this.users = [{
-      id: 1, username: 'user1'
-    }, {
-      id: 2, username: 'user2'
-    }, {
-      id: 3, username: 'user3'
-    }, {
-      id: 4, username: 'user4'
-    }];
+  .controller('UsersController', function(users) {
+    users.get()
+    .then((data) => {
+      console.log(data);
+      this.users = data;
+    })
+    .catch((err) => {
+      throw err;
+    });
+
   })
   .controller('PuzzlesController', function() {
     this.puzzles = [{
