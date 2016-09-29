@@ -47,10 +47,10 @@ app.on('ready', () => {
       label: 'View',
       submenu: [{
         label: 'Puzzle Editor',
-        click: () => mainWindow.webContents.send('edit puzzle')
+        click: () => mainWindow.webContents.send('edit', 'puzzles')
       }, {
         label: 'User Editor',
-        click: () => mainWindow.webContents.send('edit user')
+        click: () => mainWindow.webContents.send('edit', 'users')
       }]
     }
   ];
@@ -62,9 +62,4 @@ app.on('ready', () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-});
-
-ipc.on('hello', (event, args) => {
-  console.log(args);
-  mainWindow.webContents.send('hi', 'ho');
 });
