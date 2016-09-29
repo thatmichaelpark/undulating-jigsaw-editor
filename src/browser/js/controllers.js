@@ -14,14 +14,28 @@
       $scope.$apply();
     });
   })
-  .controller('UsersController', function(users) {
-    users.get()
-    .then((data) => {
-      this.users = data;
-    })
-    .catch((err) => {
-      throw err;
-    });
+  .controller('UsersController', function(users, $location) {
+    const loadUsers = () => {
+      users.get()
+      .then((data) => {
+        this.users = data;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    }
+
+    loadUsers();
+
+    this.click = function(id) {
+      users.delete(id)
+      .then((data) => {
+        loadUsers();
+      })
+      .catch((err) => {
+        throw err;
+      });
+    };
   })
   .controller('UsersFormController', function(users, $routeParams) {
     const { id } = $routeParams;

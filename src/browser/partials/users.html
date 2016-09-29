@@ -15,9 +15,9 @@
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>
-        <a href="{{'#/usersform/'}}">Edit</a>
+        <a href="{{'#/usersform/' + user.id}}">Edit</a>
         |
-        <a href="#/">Delete</a>
+        <a href="" ng-click="usersController.click(user.id)">Delete</a>
       </td>
     </tr>
   </table>
