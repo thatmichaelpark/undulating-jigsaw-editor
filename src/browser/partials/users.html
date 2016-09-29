@@ -11,7 +11,7 @@
     </nav>
   </div>
   <table class="striped" ng-controller="UsersController as usersController">
-    <tr ng-repeat="user in usersController.users">
+    <tr ng-repeat="user in usersController.users | orderBy: 'id'">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>
