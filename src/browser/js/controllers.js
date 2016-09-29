@@ -4,13 +4,12 @@
   'use strict';
 
   angular.module('editorApp')
-  .controller('EditorController', function($scope, $location) {
+  .controller('EditorController', ($scope, $location) => {
     const electron = require('electron');
 
     const ipc = electron.ipcRenderer;
 
     ipc.on('edit', (event, args) => {
-      console.log(args);
       $location.path(args);
       $scope.$apply();
     });
@@ -18,13 +17,11 @@
   .controller('UsersController', function(users) {
     users.get()
     .then((data) => {
-      console.log(data);
       this.users = data;
     })
     .catch((err) => {
       throw err;
     });
-
   })
   .controller('PuzzlesController', function() {
     this.puzzles = [{

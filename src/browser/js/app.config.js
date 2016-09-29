@@ -1,9 +1,10 @@
-(function () {
+/* globals angular */
+(function() {
   'use strict';
 
   const app = angular.module('editorApp');
 
-  app.config(function ($routeProvider) {
+  app.config(($routeProvider) => {
     $routeProvider
     .when('/', {
       templateUrl: 'partials/main.html'
@@ -18,5 +19,5 @@
       controller: 'UsersController',
       controllerAs: 'usersController'
     });
-  })
+  });
 })();
