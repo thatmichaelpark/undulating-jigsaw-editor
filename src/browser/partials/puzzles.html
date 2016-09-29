@@ -2,14 +2,22 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Puzzles</a>
+        <span class="brand-logo">Puzzles</span>
+        <ul class="right">
+          <li><a href="#/puzzlesform/new">Create New Puzzle</a></li>
+        </ul>
+
       </div>
     </nav>
   </div>
-  <table class="table" ng-controller="PuzzlesController as puzzlesController">
+  <table class="striped centered" ng-controller="PuzzlesController as puzzlesController">
     <tr ng-repeat="puzzle in puzzlesController.puzzles">
-      <td>{{puzzle.id}}</td>
-      <td>{{puzzle.imageUrl}}</td>
+      <td><img src="http://localhost:8000/{{puzzle.imageUrl}}" class="thumbnail"></td>
+      <td>
+        <a href="{{'#/puzzlesform/' + puzzle.id}}">Edit</a>
+        |
+        <a href="" ng-click="puzzlesController.click(puzzle.id)">Delete</a>
+      </td>
     </tr>
   </table>
 </div>

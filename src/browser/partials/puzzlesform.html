@@ -1,0 +1,23 @@
+<div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <span class="brand-logo">Edit Puzzle</span>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    <form name="puzzleForm" ng-submit="puzzlesFormController.submit(puzzleForm)">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Enter image URL" id="imageUrl" name="imageUrl" type="text" ng-minlength="3" ng-model="puzzlesFormController.form.imageUrl" ng-class="{'invalid': puzzleForm.imageUrl.$invalid && puzzleForm.imageUrl.$dirty}" required>
+          <label for="imageUrl">Image URL</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="submit" ng-disabled="puzzleForm.$invalid">Save Changes
+      </button>
+      <a class="btn waves-effect waves-light" type="cancel" name="cancel" ng-disabled="puzzleForm.$invalid" href="#/puzzles">Cancel
+      </a>
+    </form>
+  </div>
+</div>

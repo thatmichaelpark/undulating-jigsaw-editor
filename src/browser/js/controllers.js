@@ -41,17 +41,35 @@
     const { id } = $routeParams;
     console.log('id', id);
   })
-  .controller('PuzzlesController', function($routeParams) {
-    const { id } = $routeParams
-    this.puzzles = [{
-      id: 1, imageUrl: 'img/image1'
-    }, {
-      id: 2, imageUrl: 'img/image2'
-    }, {
-      id: 3, imageUrl: 'img/image3'
-    }, {
-      id: 4, imageUrl: 'img/image4'
-    }];
+  .controller('PuzzlesController', function(puzzles) {
+    const loadPuzzles = () => {
+      puzzles.get()
+      .then((data) => {
+        this.puzzles = data;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    }
+
+    loadPuzzles();
+
+    this.click = function(id) {
+      puzzles.delete(id)
+      .then((data) => {
+        loadPuzzles();
+      })
+      .catch((err) => {
+        Materialize.toast(err.data, 4000);
+      });
+    };
+  })
+  .controller('PuzzlesFormController', function($routeParams) {
+    const { id } = $routeParams;
+    console.log('puzzle id', id);
+    this.form = {
+      imageUrl: 'abc'
+    }
   })
   ;
 })();

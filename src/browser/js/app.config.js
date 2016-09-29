@@ -14,6 +14,11 @@
       controller: 'PuzzlesController',
       controllerAs: 'puzzlesController'
     })
+    .when('/puzzlesform/:id', {
+      templateUrl: 'partials/puzzlesform.html',
+      controller: 'PuzzlesFormController',
+      controllerAs: 'puzzlesFormController'
+    })
     .when('/users', {
       templateUrl: 'partials/users.html',
       controller: 'UsersController',
