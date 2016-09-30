@@ -11,7 +11,7 @@
     <form name="puzzleForm" ng-submit="puzzlesFormController.submit(puzzleForm)">
       <div class="row">
         <div class="input-field col s6">
-          <select ng-model="puzzlesFormController.form.imageUrl" id="imageUrl" name="imageUrl">
+          <select ng-model="puzzlesFormController.form.imageUrl" id="imageUrl" name="imageUrl" required>
             <option value="{{puzzlesFormController.form.imageUrl}}" selected>{{puzzlesFormController.form.imageUrl}}</option>
             <option ng-repeat="imageUrl in puzzlesFormController.form.imageUrls" value="{{imageUrl}}">{{imageUrl}}</option>
           </select>
@@ -25,11 +25,11 @@
       </div>
       <div class="row">
         <div class="input-field col s6 m3">
-          <input placeholder="#rows" id="nRows" name="nRows" type="number" min="1" max="10" step="1" ng-model="puzzlesFormController.form.nRows" required>
+          <input placeholder="#rows" id="nRows" name="nRows" type="number" min="2" max="10" step="1" ng-model="puzzlesFormController.form.nRows" required>
           <label for="nRows" class="active">#rows</label>
         </div>
         <div class="input-field col s6 m3">
-          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" step="1" ng-model="puzzlesFormController.form.nCols" required>
+          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="2" max="10" step="1" ng-model="puzzlesFormController.form.nCols" required>
           <label for="nCols" class="active">#cols</label>
         </div>
         <div class="input-field col s6 m3">

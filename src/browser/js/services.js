@@ -57,6 +57,14 @@
         )
         .catch((err) => {
           throw err;
+        }),
+      post: (data) =>
+        $http.post(server, data)
+        .then((res) =>
+          res.data
+        )
+        .catch((err) => {
+          throw err;
         })
     };
   };

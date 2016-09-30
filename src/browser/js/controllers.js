@@ -68,7 +68,7 @@
       });
     };
   })
-  .controller('PuzzlesFormController', function(puzzles, $routeParams, $timeout) {
+  .controller('PuzzlesFormController', function(puzzles, $routeParams, $timeout, $location) {
     const { id } = $routeParams;
 
     this.form = {};
@@ -89,11 +89,12 @@
       this.form.maxWaveDepth = 0;
       this.form.maxFreq = 0;
       this.form.maxV = 0;
-      this.form.backgroundColor = 'white';
+      this.form.backgroundColor = '#ffffff';
     }
     else {
       puzzles.getOne(id)
       .then((data) => {
+        this.form.id = data.id;
         this.form.imageUrl = data.imageUrl;
         this.form.nRows = data.nRows;
         this.form.nCols = data.nCols;
@@ -108,6 +109,23 @@
       .catch((err) => {
         Materialize.toast(err.data, 4000);
       });
+    }
+
+    this.submit = (form) => {
+      delete this.form.imageUrls;
+      if (this.form.id) {
+        $location.path('puzzles');
+      }
+      else {
+        puzzles.post(this.form)
+        .then((data) => {
+          console.log(data);
+          $location.path('puzzles');
+        })
+        .catch((err) => {
+          Materialize.toast(err.data, 4000);
+        });
+      }
     }
   })
   ;
