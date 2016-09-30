@@ -81,7 +81,7 @@
       this.form.imageUrls = files.map((file) => `/images/${file}`);
       $timeout(() => {
         $('select').material_select();
-      }, 100);
+      }, 0);
     });
 
     if (puzzleId === 'new') {
