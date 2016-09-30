@@ -85,6 +85,11 @@
       this.form.nCols = 1;
       this.form.pieceContentSize = 100;
       this.form.hasRotatedPieces = false;
+      this.form.nWaves = 0;
+      this.form.maxWaveDepth = 0;
+      this.form.maxFreq = 0;
+      this.form.maxV = 0;
+      this.form.backgroundColor = 'white';
     }
     else {
       puzzles.getOne(id)
@@ -94,6 +99,11 @@
         this.form.nCols = data.nCols;
         this.form.pieceContentSize = data.pieceContentSize;
         this.form.hasRotatedPieces = data.hasRotatedPieces;
+        this.form.nWaves = data.nWaves;
+        this.form.maxWaveDepth = data.maxWaveDepth;
+        this.form.maxFreq = data.maxFreq;
+        this.form.maxV = data.maxV;
+        this.form.backgroundColor = data.backgroundColor;
       })
       .catch((err) => {
         Materialize.toast(err.data, 4000);

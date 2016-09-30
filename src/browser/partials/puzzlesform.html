@@ -11,30 +11,52 @@
     <form name="puzzleForm" ng-submit="puzzlesFormController.submit(puzzleForm)">
       <div class="row">
         <div class="input-field col s6">
-          <select ng-model="puzzlesFormController.form.imageUrl">
+          <select ng-model="puzzlesFormController.form.imageUrl" id="imageUrl" name="imageUrl">
             <option value="{{puzzlesFormController.form.imageUrl}}" selected>{{puzzlesFormController.form.imageUrl}}</option>
             <option ng-repeat="imageUrl in puzzlesFormController.form.imageUrls" value="{{imageUrl}}">{{imageUrl}}</option>
           </select>
-          <label>Choose Image</label>
+          <label for="imageUrl">Choose Image</label>
+        </div>
+        <div class="input-field col s3">
+          <input type="color" ng-model="puzzlesFormController.form.backgroundColor" id="backgroundColor" name="backgroundColor" required>
+          <label for="backgroundColor" class="active">Background color</label>
         </div>
         <img ng-src="{{puzzlesFormController.form.imageUrl ? 'http://localhost:8000/' + puzzlesFormController.form.imageUrl : ''}}" class="thumbnail">
       </div>
       <div class="row">
         <div class="input-field col s6 m3">
-          <input placeholder="#rows" id="nRows" name="nRows" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nRows" required>
+          <input placeholder="#rows" id="nRows" name="nRows" type="number" min="1" max="10" step="1" ng-model="puzzlesFormController.form.nRows" required>
           <label for="nRows" class="active">#rows</label>
         </div>
         <div class="input-field col s6 m3">
-          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nCols" required>
+          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" step="1" ng-model="puzzlesFormController.form.nCols" required>
           <label for="nCols" class="active">#cols</label>
         </div>
         <div class="input-field col s6 m3">
-          <input placeholder="piece size (pixels)" id="pieceContentSize" name="pieceContentSize" type="number" min="1" max="10" ng-model="puzzlesFormController.form.pieceContentSize" required>
-          <label for="pieceContentSize" class="active">piece size (pixels)</label>
+          <input placeholder="Piece size (pixels)" id="pieceContentSize" name="pieceContentSize" type="number" min="1" step="1"  ng-model="puzzlesFormController.form.pieceContentSize" required>
+          <label for="pieceContentSize" class="active">Piece size (pixels)</label>
         </div>
         <div class="input-field col s6 m3">
           <input type="checkbox" class="filled-in" id="hasRotatedPieces" ng-model="puzzlesFormController.form.hasRotatedPieces" />
           <label for="hasRotatedPieces">Has rotated pieces</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 m3">
+          <input placeholder="#waves" id="nWaves" name="nWaves" type="number" min="0" max="5" step="1" ng-model="puzzlesFormController.form.nWaves" required>
+          <label for="nWaves" class="active">#waves</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="Max wave depth" id="maxWaveDepth" name="maxWaveDepth" type="number" min="0" step="any" ng-model="puzzlesFormController.form.maxWaveDepth" required>
+          <label for="maxWaveDepth" class="active">Max wave depth</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="Max spatial frequency" id="maxFreq" name="maxFreq" type="number" min="0" step="any" ng-model="puzzlesFormController.form.maxFreq" required>
+          <label for="maxFreq" class="active">Max spatial frequency</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="Max velocity" id="maxV" name="maxV" type="number" min="0" step="any" ng-model="puzzlesFormController.form.maxV" required>
+          <label for="maxV" class="active">Max velocity</label>
         </div>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="submit" ng-disabled="puzzleForm.$invalid">Save Changes
