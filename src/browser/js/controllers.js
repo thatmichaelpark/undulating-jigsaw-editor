@@ -73,7 +73,7 @@
 
     this.form = {};
     readImageDirectory((files) => {
-      this.form.imageUrls = files.map(file => `images/${file}`);
+      this.form.imageUrls = files.map(file => `/images/${file}`);
       $timeout(() => {
         $('select').material_select();
       }, 100);
