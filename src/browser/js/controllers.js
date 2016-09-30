@@ -3,6 +3,10 @@
 (function() {
   'use strict';
 
+  const electron = require('electron');
+  const readImageDirectory =
+    electron.remote.require('../server/readImageDirectory')
+
   angular.module('editorApp')
   .controller('EditorController', ($scope, $location) => {
     const electron = require('electron');
@@ -64,25 +68,32 @@
       });
     };
   })
-  .controller('PuzzlesFormController', function(puzzles, $routeParams) {
+  .controller('PuzzlesFormController', function(puzzles, $routeParams, $timeout) {
     const { id } = $routeParams;
 
+    this.form = {};
+    readImageDirectory((files) => {
+      this.form.imageUrls = files.map(file => `images/${file}`);
+      $timeout(() => {
+        $('select').material_select();
+      }, 100);
+    });
+
     if (id === 'new') {
-      this.form = {
-        nRows: 1,
-        nCols: 1,
-        imageUrl: ''
-      }
+      this.form.imageUrl = '';
+      this.form.nRows = 1;
+      this.form.nCols = 1;
+      this.form.pieceContentSize = 100;
+      this.form.hasRotatedPieces = false;
     }
     else {
       puzzles.getOne(id)
       .then((data) => {
-        console.log(data);
-        this.form = {
-          nRows: data.nRows,
-          nCols: data.nCols,
-          imageUrl: data.imageUrl
-        }
+        this.form.imageUrl = data.imageUrl;
+        this.form.nRows = data.nRows;
+        this.form.nCols = data.nCols;
+        this.form.pieceContentSize = data.pieceContentSize;
+        this.form.hasRotatedPieces = data.hasRotatedPieces;
       })
       .catch((err) => {
         Materialize.toast(err.data, 4000);

@@ -7,17 +7,30 @@
     </nav>
   </div>
   <div class="container">
+    <p></p>
     <form name="puzzleForm" ng-submit="puzzlesFormController.submit(puzzleForm)">
       <div class="row">
-        <div class="input-field col s12 m6">
-          <input placeholder="Enter image URL" id="imageUrl" name="imageUrl" type="text" ng-minlength="3" ng-model="puzzlesFormController.form.imageUrl" ng-class="{'invalid': puzzleForm.imageUrl.$invalid && puzzleForm.imageUrl.$dirty}" required>
-          <label for="imageUrl" class="active">Image URL</label>
+        <div class="input-field col s6">
+          <select ng-model="puzzlesFormController.form.imageUrl">
+            <option value="{{puzzlesFormController.form.imageUrl}}" selected>{{puzzlesFormController.form.imageUrl}}</option>
+            <option ng-repeat="imageUrl in puzzlesFormController.form.imageUrls" value="{{imageUrl}}">{{imageUrl}}</option>
+          </select>
+          <label>Choose Image</label>
         </div>
+        <img ng-src="{{puzzlesFormController.form.imageUrl ? 'http://localhost:8000/' + puzzlesFormController.form.imageUrl : ''}}" class="thumbnail">
       </div>
       <div class="row">
         <div class="input-field col s6 m3">
           <input placeholder="#rows" id="nRows" name="nRows" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nRows" required>
           <label for="nRows" class="active">#rows</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nCols" required>
+          <label for="nCols" class="active">#cols</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="piece size (pixels)" id="pieceContentSize" name="pieceContentSize" type="number" min="1" max="10" ng-model="puzzlesFormController.form.pieceContentSize" required>
+          <label for="pieceContentSize" class="active">piece size (pixels)</label>
         </div>
         <div class="input-field col s6 m3">
           <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nCols" required>
