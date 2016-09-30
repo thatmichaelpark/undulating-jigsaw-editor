@@ -9,14 +9,24 @@
   <div class="container">
     <form name="puzzleForm" ng-submit="puzzlesFormController.submit(puzzleForm)">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input placeholder="Enter image URL" id="imageUrl" name="imageUrl" type="text" ng-minlength="3" ng-model="puzzlesFormController.form.imageUrl" ng-class="{'invalid': puzzleForm.imageUrl.$invalid && puzzleForm.imageUrl.$dirty}" required>
-          <label for="imageUrl">Image URL</label>
+          <label for="imageUrl" class="active">Image URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 m3">
+          <input placeholder="#rows" id="nRows" name="nRows" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nRows" required>
+          <label for="nRows" class="active">#rows</label>
+        </div>
+        <div class="input-field col s6 m3">
+          <input placeholder="#cols" id="nCols" name="nCols" type="number" min="1" max="10" ng-model="puzzlesFormController.form.nCols" required>
+          <label for="nCols" class="active">#cols</label>
         </div>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="submit" ng-disabled="puzzleForm.$invalid">Save Changes
       </button>
-      <a class="btn waves-effect waves-light" type="cancel" name="cancel" ng-disabled="puzzleForm.$invalid" href="#/puzzles">Cancel
+      <a class="btn waves-effect waves-light" type="cancel" name="cancel" href="#/puzzles">Cancel
       </a>
     </form>
   </div>

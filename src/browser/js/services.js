@@ -42,6 +42,14 @@
         .catch((err) => {
           throw err;
         }),
+      getOne: (id) =>
+        $http.get(`${server}/${id}`)
+        .then((res) =>
+          res.data
+        )
+        .catch((err) => {
+          throw err;
+        }),
       delete: (id) =>
         $http.delete(`${server}/${id}`)
         .then((res) =>

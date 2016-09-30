@@ -64,11 +64,29 @@
       });
     };
   })
-  .controller('PuzzlesFormController', function($routeParams) {
+  .controller('PuzzlesFormController', function(puzzles, $routeParams) {
     const { id } = $routeParams;
-    console.log('puzzle id', id);
-    this.form = {
-      imageUrl: 'abc'
+
+    if (id === 'new') {
+      this.form = {
+        nRows: 1,
+        nCols: 1,
+        imageUrl: ''
+      }
+    }
+    else {
+      puzzles.getOne(id)
+      .then((data) => {
+        console.log(data);
+        this.form = {
+          nRows: data.nRows,
+          nCols: data.nCols,
+          imageUrl: data.imageUrl
+        }
+      })
+      .catch((err) => {
+        Materialize.toast(err.data, 4000);
+      });
     }
   })
   ;
