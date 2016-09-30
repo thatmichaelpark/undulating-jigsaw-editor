@@ -65,6 +65,14 @@
         )
         .catch((err) => {
           throw err;
+        }),
+      patch: (id, data) =>
+        $http.patch(`${server}/${id}`, data)
+        .then((res) =>
+          res.data
+        )
+        .catch((err) => {
+          throw err;
         })
     };
   };

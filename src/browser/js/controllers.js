@@ -113,13 +113,19 @@
 
     this.submit = (form) => {
       delete this.form.imageUrls;
-      if (this.form.id) {
-        $location.path('puzzles');
+      const { id } = this.form;
+      if (id) {
+        puzzles.patch(id, this.form)
+        .then((data) => {
+          $location.path('puzzles');
+        })
+        .catch((err) => {
+          Materialize.toast(err.data, 4000);
+        });
       }
       else {
         puzzles.post(this.form)
         .then((data) => {
-          console.log(data);
           $location.path('puzzles');
         })
         .catch((err) => {

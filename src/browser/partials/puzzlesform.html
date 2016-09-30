@@ -21,7 +21,7 @@
           <input type="color" ng-model="puzzlesFormController.form.backgroundColor" id="backgroundColor" name="backgroundColor" required>
           <label for="backgroundColor" class="active">Background color</label>
         </div>
-        <img ng-src="{{puzzlesFormController.form.imageUrl ? 'http://localhost:8000/' + puzzlesFormController.form.imageUrl : ''}}" class="thumbnail">
+        <img ng-src="{{ puzzlesFormController.form.imageUrl ? 'http://localhost:8000' + puzzlesFormController.form.imageUrl : ''}}" class="thumbnail">
       </div>
       <div class="row">
         <div class="input-field col s6 m3">
