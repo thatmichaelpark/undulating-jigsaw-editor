@@ -10,11 +10,15 @@ const { app, BrowserWindow, Menu } = electron;
 
 let mainWindow;
 
+app.on('window-all-closed', () => {
+  app.quit();
+});
+
 app.on('ready', () => {
   mainWindow = new BrowserWindow();
   mainWindow.loadURL(`file://${__dirname}/../browser/editor.html`);
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   const name = app.getName();
   const template = [

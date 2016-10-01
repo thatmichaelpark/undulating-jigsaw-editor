@@ -39,9 +39,30 @@
       });
     };
   })
-  .controller('UsersFormController', function(users, $routeParams) {
+  .controller('UsersFormController', function(
+    users, $routeParams, $location
+  ) {
     const { id } = $routeParams;
+    this.form = {};
 
+    users.getOne(id)
+    .then((data) => {
+      this.form.id = data.id;
+      this.form.username = data.username;
+    })
+    .catch((err) => {
+      Materialize.toast(err.data, 4000);
+    })
+
+    this.submit = () => {
+      users.patch(this.form.id, this.form)
+      .then(() => {
+        $location.path('users');
+      })
+      .catch((err) => {
+        Materialize.toast(err.data, 4000);
+      });
+    }
   })
   .controller('PuzzlesController', function(puzzles) {
     const loadPuzzles = () => {

@@ -1,1 +1,24 @@
-<h1>Users Form</h1>
+<div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <span class="brand-logo">Edit User</span>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    <p></p>
+    <form name="userForm" ng-submit="usersFormController.submit(userForm)">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" name="username" type="text" placeholder="Username" ng-model="usersFormController.form.username" ng-maxlength="20" ng-class="{'invalid': usersFormController.form.username.$invalid && usersFormController.form.username.$dirty}" required>
+          <label for="username" class="active">Username</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="submit" ng-disabled="userForm.$invalid">Save Changes
+      </button>
+      <a class="btn waves-effect waves-light" type="cancel" name="cancel" href="#/users">Cancel
+      </a>
+    </form>
+  </div>
+</div>
