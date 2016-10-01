@@ -16,7 +16,7 @@
       $scope.$apply();
     });
   })
-  .controller('UsersController', function(users, $location) {
+  .controller('UsersController', function(users) {
     const loadUsers = () => {
       users.get()
       .then((data) => {
@@ -43,8 +43,8 @@
     users, $routeParams, $location
   ) {
     const { id } = $routeParams;
-    this.form = {};
 
+    this.form = {};
     users.getOne(id)
     .then((data) => {
       this.form.id = data.id;
@@ -52,7 +52,7 @@
     })
     .catch((err) => {
       Materialize.toast(err.data, 4000);
-    })
+    });
 
     this.submit = () => {
       users.patch(this.form.id, this.form)
@@ -62,7 +62,7 @@
       .catch((err) => {
         Materialize.toast(err.data, 4000);
       });
-    }
+    };
   })
   .controller('PuzzlesController', function(puzzles) {
     const loadPuzzles = () => {
