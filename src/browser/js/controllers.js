@@ -90,19 +90,23 @@
 
    // eslint-disable-next-line max-params
   .controller('PuzzlesFormController', function(
-    puzzles, $routeParams, $timeout, $location
+    puzzles, $routeParams, $timeout, $location, $scope
   ) {
     const puzzleId = $routeParams.id;
 
     this.form = {};
+
+    $scope.$watch(() => this.form.imageUrls, () => {
+      $scope.$$postDigest(() => {
+        $('select').material_select();
+      });
+    });
+
     readImageDirectory((err, files) => {
       if (err) {
         return Materialize.toast(err, 4000);
       }
       this.form.imageUrls = files.map((file) => `/images/${file}`);
-      $timeout(() => {
-        $('select').material_select();
-      }, 0);
     });
 
     if (puzzleId === 'new') {
