@@ -12,7 +12,11 @@
   </div>
   <table class="striped centered" ng-controller="PuzzlesController as puzzlesController">
     <tr ng-repeat="puzzle in puzzlesController.puzzles">
-      <td><img src="http://localhost:8000{{puzzle.imageUrl}}" class="thumbnail"></td>
+      <td>
+        <a href="{{'#/puzzlesform/' + puzzle.id}}">
+          <img src="http://localhost:8000{{puzzle.imageUrl}}" class="thumbnail">
+        </a>
+      </td>
       <td>
         <a href="{{'#/puzzlesform/' + puzzle.id}}">Edit</a>
         |
