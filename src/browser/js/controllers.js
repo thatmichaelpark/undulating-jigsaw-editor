@@ -18,8 +18,8 @@
   })
   .controller('LoginFormController', function(users, $location) {
     this.form = {
-      username: 'admin',
-      password: 'admin'
+      username: '',
+      password: ''
     };
 
     this.submit = () => {
