@@ -25,7 +25,7 @@
     this.submit = () => {
       users.login(this.form.username, this.form.password)
       .then(() => {
-        $location.path('puzzle');
+        $location.path('puzzles');
       })
       .catch((err) => {
         Materialize.toast(err.data, 4000);
@@ -128,8 +128,8 @@
     if (puzzleId === 'new') {
       (() => {  // initialize new puzzle
         this.form.imageUrl = '';
-        this.form.nRows = 1;
-        this.form.nCols = 1;
+        this.form.nRows = 2;
+        this.form.nCols = 2;
         this.form.pieceContentSize = 100;
         this.form.hasRotatedPieces = false;
         this.form.nWaves = 0;
