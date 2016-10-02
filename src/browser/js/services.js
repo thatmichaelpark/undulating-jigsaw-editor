@@ -6,6 +6,7 @@
 
   const users = function($http) {
     const server = 'http://localhost:8000/api/users';
+    const tokenServer = 'http://localhost:8000/api/token';
 
     return {
       get: () =>
@@ -34,6 +35,14 @@
         }),
       patch: (id, data) =>
         $http.patch(`${server}/${id}`, data)
+        .then((res) =>
+          res.data
+        )
+        .catch((err) => {
+          throw err;
+        }),
+      login: (username, password) =>
+        $http.post(tokenServer, { username, password })
         .then((res) =>
           res.data
         )

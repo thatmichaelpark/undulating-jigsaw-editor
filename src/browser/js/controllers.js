@@ -16,6 +16,22 @@
       $scope.$apply();
     });
   })
+  .controller('LoginFormController', function(users, $location) {
+    this.form = {
+      username: 'admin',
+      password: 'admin'
+    };
+
+    this.submit = () => {
+      users.login(this.form.username, this.form.password)
+      .then(() => {
+        $location.path('puzzle');
+      })
+      .catch((err) => {
+        Materialize.toast(err.data, 4000);
+      });
+    };
+  })
   .controller('UsersController', function(users) {
     const loadUsers = () => {
       users.get()

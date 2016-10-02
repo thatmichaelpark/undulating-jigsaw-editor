@@ -1,7 +1,32 @@
 <header class="hero valign-wrapper">
-  <div class="row">
-    <div class="col s12 m8 offset-m2 center-align">
-        <h1 class="pink-text">Undulating Jigsaw Puzzle Editor</h1>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Log In</span>
+        <div class="row">
+          <div class="col s12 m6 offset-m3">
+            <form name="loginForm" ng-submit="loginFormController.submit(loginForm)">
+              <div class="row">
+                <div class="input-field">
+                  <input id="username" name="username" type="text" placeholder="Username" ng-model="loginFormController.form.username" ng-maxlength="20" ng-class="{'invalid': loginFormController.form.username.$invalid && loginFormController.form.username.$dirty}" required>
+                  <label for="username" class="active">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field">
+                  <input id="password" name="password" type="password" placeholder="Password" ng-model="loginFormController.form.password" ng-maxlength="50" ng-class="{'invalid': loginFormController.form.password.$invalid && loginFormController.form.password.$dirty}" required>
+                  <label for="password" class="active">Password</label>
+                </div>
+              </div>
+              <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit" name="submit" ng-disabled="loginForm.$invalid">
+                  Log In
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
