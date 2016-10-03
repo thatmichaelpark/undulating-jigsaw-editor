@@ -7,6 +7,13 @@ It enables the user to edit or delete users and puzzles, or create new puzzles.
 
 This is a desktop app built with Angular and Electron.
 
+## Preparation for use
+
+Edit readImageDirectory.js and modify the path variable to point to the
+Undulating Jigsaw Puzzle image directory. (Note that to support the native
+file system scenario, both the Undulating Jigsaw Puzzle server and
+the Undulating Jigsaw Editor must run on the same machine.)
+
 ## To launch
 ```
 npm start
