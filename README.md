@@ -1,6 +1,6 @@
 # Undulating Jigsaw Editor
 
-This is an editor for the [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
+This is an editor for [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
 It enables the user to edit or delete users and puzzles, or create new puzzles.
 
 ## Technologies used
