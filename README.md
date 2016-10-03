@@ -1,29 +1,28 @@
 # Undulating Jigsaw Editor
 
-This is an editor for [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
-It enables the user to edit or delete users and puzzles, or create new puzzles.
+This is a companion program for [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
+It enables an administrator to create new puzzles and edit or delete puzzles and users.
 
 ## Technologies used
 
-This is a desktop app built with Angular and Electron.
+This is a desktop app built with Angular, Materialize, and Electron.
+
+To showcase the fact that it is a desktop app, the program uses native OS menus
+and also accesses the local file system to list the available images.
 
 ## Preparation for use
 
-Edit readImageDirectory.js and modify the path variable to point to the
-Undulating Jigsaw Puzzle image directory. (Note that to support the native
+Edit readImageDirectory.js and modify the `path` variable to point to the
+Undulating Jigsaw Puzzle image directory on your machine.
+(Note: in order to support the native
 file system scenario, both the Undulating Jigsaw Puzzle server and
 the Undulating Jigsaw Editor must run on the same machine.)
 
-## To launch
+## To launch from the command line
 ```
 npm start
 ```
-## To package as a native app.
+## To package as a native application
 ```
 npm run electron-packager ./
 ```
-## Biggest challenge
-
-To showcase the fact that it is a desktop app, the program uses native OS menus
-and also accesses the local file system (to list the available images). These features
-required a different approach than the usual web application.
