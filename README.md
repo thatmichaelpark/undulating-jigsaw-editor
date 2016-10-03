@@ -3,6 +3,8 @@
 This is a companion program for [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
 It enables an administrator to create new puzzles and edit or delete puzzles and users.
 
+(The administrator username is hardcoded to be *admin* with password *admin*.)
+
 ## Technologies used
 
 This is a desktop app built with Angular, Materialize, and Electron.
