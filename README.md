@@ -1,6 +1,6 @@
 # Undulating Jigsaw Editor
 
-[![Puzzle editor on YouTube](https://www.youtube.com/upload_thumbnail?v=ygPgN7u37EM&t=hqdefault&ts=1475725423808)](http://www.youtube.com/watch?v=ygPgN7u37EM)
+[![Puzzle Editor on YouTube](http://img.youtube.com/vi/ygPgN7u37EM/0.jpg)](http://www.youtube.com/watch?v=ygPgN7u37EM)
 
 
 
