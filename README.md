@@ -1,5 +1,7 @@
 # Undulating Jigsaw Editor
 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/ygPgN7u37EM/0.jpg)](http://www.youtube.com/watch?v=ygPgN7u37EM)
+
 This is a companion program for [Undulating Jigsaw Puzzles](https://github.com/thatmichaelpark/undulating-jigsaw-puzzle).
 It enables an administrator to create new puzzles and edit or delete puzzles and users.
 
